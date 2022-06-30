@@ -13,6 +13,8 @@ import {
 } from '@jsonforms/material-renderers';
 import RatingControl from './RatingControl';
 import ratingControlTester from './ratingControlTester';
+// import ButtonControl from './ButtonControl';
+// import buttonControlTester from './buttonControlTester';
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
@@ -47,12 +49,14 @@ const initialData = {
   done: true,
   recurrence: 'Daily',
   rating: 3,
+  due_date: "2022-06-10T11:07:39.966Z",
 };
 
 const renderers = [
   ...materialRenderers,
   //register custom renderers
   { tester: ratingControlTester, renderer: RatingControl },
+  // { tester: buttonControlTester, renderer: ButtonControl },
 ];
 
 const App = () => {
@@ -103,7 +107,7 @@ const App = () => {
           <div className={classes.demoform}>
             <JsonForms
               schema={schema}
-              uischema={uischema}
+              // uischema={uischema}
               data={data}
               renderers={renderers}
               cells={materialCells}
