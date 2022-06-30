@@ -47,6 +47,14 @@ const initialData = {
   done: true,
   recurrence: 'Daily',
   rating: 3,
+  due_date: "2022-06-10T11:07:39.966Z",
+  payment: {
+    paid: true,
+    charges: [{
+      amount: 4.99,
+      dispute: false
+    }]
+  }
 };
 
 const renderers = [
@@ -103,7 +111,7 @@ const App = () => {
           <div className={classes.demoform}>
             <JsonForms
               schema={schema}
-              uischema={uischema}
+              // uischema={uischema}
               data={data}
               renderers={renderers}
               cells={materialCells}

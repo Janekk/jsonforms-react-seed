@@ -14,7 +14,7 @@
     },
     "due_date": {
       "type": "string",
-      "format": "date"
+      "format": "date-time"
     },
     "rating": {
       "type": "integer",
@@ -25,7 +25,28 @@
       "enum": ["Never", "Daily", "Weekly", "Monthly"]
     },
     "recurrence_interval": {
-      "type": "integer"
+      "type": "integer",
+      "form": {
+        "type": "button"
+      }
+    },
+    "payment": {
+      "type": "object",
+      "readOnly": true,
+      "properties": {
+        "paid": { "type": "boolean" },
+        "charges": {
+          "type": "array",
+          "readOnly": true,
+          "items": {
+            "readOnly": true,
+            "properties": {
+              "amount": { "type": "number" },
+              "dispute": { "type": [ "boolean", "null" ] }
+            }
+          }
+        }
+      }
     }
   },
   "required": ["name", "due_date"]
